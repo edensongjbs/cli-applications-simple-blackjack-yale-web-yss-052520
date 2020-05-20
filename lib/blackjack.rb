@@ -39,13 +39,24 @@ end
 def hit?(current_total)
   # code hit? here
   prompt_user
-  user_input=get_user_input
-  loop
-  
+  loop {
+    user_input=get_user_input
+    if user_input=="h"
+      current_total+=deal_card
+      break
+    else if user_input=="s"
+      break
+    else
+      invalid_command
+      prompt_user
+    end
+  }
+  current_total
 end
 
 def invalid_command
   # code invalid_command here
+  puts "Please enter a valid command"
 end
 
 #####################################################
